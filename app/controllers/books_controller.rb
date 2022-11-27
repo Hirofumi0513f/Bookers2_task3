@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    @books = Book.page(params[:id])
   end
 
   def show
