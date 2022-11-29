@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def index
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
@@ -16,8 +16,9 @@ class UsersController < ApplicationController
     @user.update
     redirect_to user_path(@user.id)
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:name,:introduction)
+  end
 end
