@@ -51,5 +51,8 @@ before_action :currect_user, only: [:edit, :update]
   end
 
   def currect_user
-ｃ
+    @book = Book.find(params[:id])
+    @user = @book.user
+    redirect_to(books_path) unless @user == current_user
+  end
 end
