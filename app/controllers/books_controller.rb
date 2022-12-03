@@ -26,6 +26,7 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     book.update(_params)
+    flash[:notice] = "Your book updated successfully."
     redirect_to book_path(book.id)
   end
 
