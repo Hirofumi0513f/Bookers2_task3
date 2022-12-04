@@ -36,7 +36,7 @@ before_action :currect_user, only: [:edit, :update]
       flash[:notice] = "Your book updated successfully."
       redirect_to books_path(@book.id)
     else
-      render :show
+      render :edit
     end
   end
 
