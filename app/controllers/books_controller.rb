@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 before_action :currect_user, only: [:edit, :update]
+
   def new
     @book = Book.new
   end
@@ -17,6 +18,7 @@ before_action :currect_user, only: [:edit, :update]
 
   def index
     @books = Book.all
+    @user = current_user
     @book = Book.new
   end
 

@@ -24,4 +24,6 @@
   </tbody>
 </table>
 
+<%= render 'users/user',user: @user %>
+<%= link_to "Edit", edit_user_path(@user.id) %>
 <%= render 'book',book: @book %>
