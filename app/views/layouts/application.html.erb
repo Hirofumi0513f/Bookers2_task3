@@ -12,9 +12,13 @@
 
   <body>
     <header>
-      <h4>
-        <%= link_to "Bookers",root_path %>
-      </h4>
+      <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class = "container">
+          <a class = "navbar-brand" href="/">
+            <span><%= link_to "Bookers",root_path %></span>
+          </a>
+        </div>
+      </nav>
       <% if user_signed_in? %>
       <ul>
         <li>
