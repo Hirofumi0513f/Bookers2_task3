@@ -1,3 +1,6 @@
+<%= render 'user',user: @user %>
+<%= render 'books/book',book: @book %>
+
 <h1>Books</h1>
 <table>
   <thead>
@@ -23,7 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= render 'user',user: @user %>
-<%= link_to "Edit", edit_user_path(@user.id) %>
-<%= render 'books/book',book: @book %>

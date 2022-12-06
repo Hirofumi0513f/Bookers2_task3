@@ -1,7 +1,28 @@
-  <h1>User info</h1>
-
-  <div>
-    <%= image_tag user.get_profile_image(100, 100) %><br>
-    <p>name:<%= user.name %></p><br>
-    <p>introduction:<%= user.introduction %></p><br>
-  </div>
+  <main>
+    <p id ="notice">
+      <div class ="container px-5 px-sm-0">
+        <div class ="row">
+          <div class ="col-md-3">
+            <h2>User info</h2>
+            <table class ="table">
+              <tbody>
+                <%= image_tag user.get_profile_image(100, 100) %>
+                <tr></tr>
+                <tr>
+                  <th>name</th>
+                  <th><%= user.name %></th>
+                </tr>
+                <tr>
+                  <th>introduction</th>
+                  <th><%= user.introduction %></th>
+                </tr>
+              </tbody>
+            </table>
+            <%= link_to edit_user_path(@user.id), class:'btn btn-outline-secondary btn-block' do  %>
+              <i class ='fas fa-user-cog'></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </p>
+  </main>
