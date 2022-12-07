@@ -1,31 +1,42 @@
-<%= render 'users/user',user: @user %>
-<%= render 'book',book: @books %>
-<h2>Book detail</h2>
-<table>
-  <tbody>
-    <tr>
-      <td>
-        <%= image_tag @book.user.get_profile_image(100,100) %><br>
-        <%= link_to books_path do %>
-          <%= @book.user.name %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to book_path(@book.id) do %>
-          <%=@book.title %>
-        <% end %>
-      </td>
-      <td><%= @book.body %></td>
-      <td>
-        <% if @book.user == current_user %>
-          <%= link_to "Edit",edit_book_path(@book) %>
-        <% end %>
-      </td>
-      <td>
-        <% if @book.user == current_user %>
-          <%= link_to "Destroy",book_path(@book.id),method: :delete, "data-confirm"=>"本当に削除しますか？" %>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<p id ="notice"></p>
+<div class ="container">
+  <div class ="row">
+    <div class ="col-md-3">
+      <%= render 'users/user',user: @user %>
+      <%= render 'book',book: @books %>
+    </div>
+    <div class ="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class ="table">
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag @book.user.get_profile_image(100,100) %><br>
+              <%= link_to books_path do %>
+                <%= @book.user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@book.id) do %>
+                <%=@book.title %>
+              <% end %>
+            </td>
+            <td><%= @book.body %></td>
+            <td>
+              <% if @book.user == current_user %>
+                <%= link_to "Edit",edit_book_path(@book) ,class:'btn btn-sm btn-success'%>
+              <% end %>
+            </td>
+            <td>
+              <% if @book.user == current_user %>
+                <%= link_to "Destroy",book_path(@book.id),method: :delete, "data-confirm"=>"本当に削除しますか？" ,class:'btn btn-sm btn-danger' %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
