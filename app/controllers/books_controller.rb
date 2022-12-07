@@ -26,6 +26,8 @@ before_action :currect_user, only: [:edit, :update]
 
   def show
     @book = Book.find(params[:id])
+    @user = current_user
+    @books = Book.new
   end
 
   def edit
