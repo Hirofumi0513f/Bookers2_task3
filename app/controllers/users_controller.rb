@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
 
   def show
-    @user = User.find(params[:id])
-    @books = @user.books
+    # 「_user.html.erb」の最後のリンクに使用している定義の変数は@userfから持ってきている
+    @userf = User.find(params[:id])
+    @books = @userf.books
     @book = Book.new
   end
 
@@ -14,14 +15,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @userf = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
+    @userf = User.find(params[:id])
+    if @userf.update(user_params)
       flash[:notice] = "You have updated user profile successfully."
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@userf.id)
     else
       render :edit
     end

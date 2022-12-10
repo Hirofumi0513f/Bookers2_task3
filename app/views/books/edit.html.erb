@@ -4,16 +4,16 @@
     <div class ="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>Editing Book</h1>
       <div id ="error_explanation">
-        <% if @book.errors.any? %>
-          <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+        <% if @bookf.errors.any? %>
+          <h3><%= @bookf.errors.count %>errors prohibited this obj from being saved:</h3>
             <ul>
-              <% @book.errors.full_messages.each do |message| %>
+              <% @bookf.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
               <% end %>
             </ul>
         <% end %>
       </div>
-      <%= form_with model: @book do |f| %>
+      <%= form_with model: @bookf do |f| %>
         <div class ="form-group">
           <label for="inputTitle">Title</label>
           <%= f.text_field :title, class:'form-control book_title' %>
@@ -27,7 +27,7 @@
         </div>
       <% end %>
        <p>
-        <%= link_to "Show",book_path(@book.id) %>
+        <%= link_to "Show",book_path(@bookf.id) %>
         |
         <%= link_to "Back",books_path %>
        </p>
